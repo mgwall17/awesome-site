@@ -1,0 +1,46 @@
+name: Likable Theme
+type: theme
+description: 'Likable Theme is responsive 8 theme. Developed by <a href="http://kattio.ru">kattio.ru</a>.'
+# core: 8.x
+
+# Regions
+regions:
+  header: 'Header'
+  main_menu: 'Main Menu'
+  top_first: 'Top First'
+  top_second: 'Top Second'
+  top_third: 'Top Third'
+  top_fourth: 'Top Fourth'
+  highlighted: 'Highlighted'
+  sidebar_first: 'Sidebar First'
+  sidebar_second: 'Sidebar Second'
+  breadcrumbs: 'Breadcrumbs'
+  help: 'Help'
+  content_top: 'Top Content'
+  content: 'Content'
+  bottom_first: 'Bottom First'
+  bottom_second: 'Bottom Second'
+  bottom_third: 'Bottom Third'
+  bottom_fourth: 'Bottom Fourth'
+  footer_first: 'Footer First'
+  footer_second: 'Footer Second'
+  footer_third: 'Footer Third'
+  footer_fourth: 'Footer Fourth'
+  footer: 'Footer'
+
+# Assets
+libraries:
+  - likable/global-css
+  - likable/global-js
+
+# Information added by Drupal.org packaging script on 2018-06-08
+# version: '8.x-1.0'
+# core: '8.x'
+# project: 'likable'
+# datestamp: 1528444991
+
+# Information added by Drupal.org packaging script on 2018-12-30
+version: '8.x-1.0'
+core: '8.x'
+project: 'likable'
+datestamp: 1546156390

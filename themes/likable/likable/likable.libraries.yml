@@ -1,0 +1,22 @@
+global-css:
+  css:
+    theme:
+      css/bootstrap.min.css: {}
+      css/flexslider.css: {}
+      css/menu.css: {}
+      css/style.css: {}
+
+
+global-js:
+  js:
+    js/bootstrap.min.js : {}
+    js/script.js : {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+
+
+slider-js:
+  js:
+    js/jquery.flexslider.js : {}
+    js/slide.js : {}

@@ -1,0 +1,99 @@
+<?php
+
+/**
+ * @file
+ * Functions to support theming in the likable theme.
+ */
+
+function likable_preprocess_page(&$variables) {
+  $variables['slideshow_display'] = theme_get_setting('slideshow_display','likable');
+  $variables['show_breadcrumbs'] = theme_get_setting('show_breadcrumbs','likable');
+
+
+  // slide1
+  $variables['slide1_head'] = theme_get_setting('slide1_head','likable');
+  $variables['slide1_desc'] = check_markup(theme_get_setting('slide1_desc','likable'), 'full_html');
+  $variables['slide1_url'] = theme_get_setting('slide1_url','likable');
+  $fid = theme_get_setting("slide1_image", "likable");
+  if (!empty($fid)) {
+    $file = \Drupal\file\Entity\File::load($fid[0]);
+    $uri = $file->getFileUri();
+    $image_path = file_create_url($uri);
+   }
+   else {
+    $image_path = drupal_get_path('theme', 'likable') . '/images/slide-1.jpg';
+   }
+   $variables['slide1_image'] = $image_path;
+
+  // slide2
+  $variables['slide2_head'] = theme_get_setting('slide2_head','likable');
+  $variables['slide2_desc'] = check_markup(theme_get_setting('slide2_desc','likable'), 'full_html');
+  $variables['slide2_url'] = theme_get_setting('slide2_url','likable');
+  $fid = theme_get_setting("slide2_image", "likable");
+  if (!empty($fid)) {
+    $file = \Drupal\file\Entity\File::load($fid[0]);
+    $uri = $file->getFileUri();
+    $image_path = file_create_url($uri);
+   }
+   else {
+    $image_path = drupal_get_path('theme', 'likable') . '/images/slide-2.jpg';
+   }
+   $variables['slide2_image'] = $image_path;
+
+  // slide3
+  $variables['slide3_head'] = theme_get_setting('slide3_head','likable');
+  $variables['slide3_desc'] = check_markup(theme_get_setting('slide3_desc','likable'), 'full_html');
+  $variables['slide3_url'] = theme_get_setting('slide3_url','likable');
+  $fid = theme_get_setting("slide3_image", "likable");
+  if (!empty($fid)) {
+    $file = \Drupal\file\Entity\File::load($fid[0]);
+    $uri = $file->getFileUri();
+    $image_path = file_create_url($uri);
+   }
+   else {
+    $image_path =  drupal_get_path('theme', 'likable') . '/images/slide-3.jpg';
+   }
+   $variables['slide3_image'] = $image_path;
+
+     
+  $variables['top_col'] = ( ( (bool) $variables['page']['top_first'] + (bool) $variables['page']['top_second'] + (bool) $variables['page']['top_third'] + (bool) $variables['page']['top_fourth'] ) );
+  $variables['top_col'] = ($variables['top_col'] > 0)
+    ? (12 / $variables['top_col']) : 0;
+	
+  $variables['bottom_col'] = ( ( (bool) $variables['page']['bottom_first'] + (bool) $variables['page']['bottom_second'] + (bool) $variables['page']['bottom_third'] + (bool) $variables['page']['bottom_fourth'] ) );
+  $variables['bottom_col'] = ($variables['bottom_col'] > 0)
+    ? (12 / $variables['bottom_col']) : 0;
+
+  $variables['footer_col'] = ( ( (bool) $variables['page']['footer_first'] + (bool) $variables['page']['footer_second'] + (bool) $variables['page']['footer_third'] + (bool) $variables['page']['footer_fourth'] ) );
+  $variables['footer_col'] = ($variables['footer_col'] > 0)
+    ? (12 / $variables['footer_col']) : 0;
+	
+	
+  $variables['this_year']= date('Y');
+  
+}
+
+/**
+ * Preprocess function for breadcrumb.html.twig.
+ */
+function guel_preprocess_breadcrumb(&$variables) {
+  // Set cache context as 'URL'.
+  $variables['#cache']['contexts'][] = 'url';
+
+  // Set breadcrumb.
+  if(($node = \Drupal::routeMatch()->getParameter('node')) && $variables['breadcrumb']){
+    $variables['breadcrumb'][] = array(
+      'text' => $node->getTitle(),
+      'url' => $node->URL()
+   );
+  }
+}
+
+/**
+ * Implements hook_form_alter()
+ */
+function likable_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  if ('search_block_form' == $form_id) {
+    $form['keys']['#attributes']['placeholder'][] = t('Search this site...');
+  }
+}

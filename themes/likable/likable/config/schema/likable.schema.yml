@@ -1,0 +1,5 @@
+# Required to validate default theme settings.
+
+likable.settings:
+  type: theme_settings
+  label: 'likable settings'

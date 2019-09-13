@@ -1,0 +1,22 @@
+features:
+  node_user_picture: true
+  comment_user_picture: true
+  comment_user_verification: true
+  favicon: true
+logo:
+  use_default: true
+  path: ''
+favicon:
+  use_default: true
+  path: ''
+slideshow_display: 1
+show_breadcrumbs: 1
+slide1_head: 'DUIS AUTEM vel eum iriure'
+slide2_head: 'UT WISI ENIM ad minim veniam'
+slide3_head: 'Vel illum dolore eu feugiat '
+slide1_desc: 'LOREM IPSUM dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt'
+slide2_desc: 'DUIS AUTEM vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat vel illum'
+slide3_desc: 'UT WISI ENIM ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip'
+slide1_url: 'about'
+slide2_url: 'events'
+slide3_url: 'news'
